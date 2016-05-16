@@ -66,21 +66,21 @@ var pikePlace = {
       // append the <li> to the <ul>
       var liElement = document.createElement('li');
       liElement.textContent = hours[i] + ': ' + this.beansPerHour[i] + ' lbs [' +
-      this.customersPerHour[i] + ' customers, ' + this.cupsPerHour[i] + ' cups (' + (this.cupsPerHour[i] / 16) + ' lbs), ' + this.poundPackagesPerHour[i] + ' lbs to-go]';
+      this.customersPerHour[i] + ' customers, ' + this.cupsPerHour[i] + ' cups (' + Math.ceil((this.cupsPerHour[i] / 16) * 10) / 10 + ' lbs), ' + this.poundPackagesPerHour[i] + ' lbs to-go]';
       ulElement.appendChild(liElement);
 
     }
     var liTotalCustomers = document.createElement('li');
-    liTotalCustomers.textContent = 'Total customers at ' + pikePlace.locationName + ': ' + pikePlace.dailyCustomersTotal;
+    liTotalCustomers.textContent = 'Total customers at ' + pikePlace.locationName + ': ' + Math.ceil(pikePlace.dailyCustomersTotal);
     ulElement.appendChild(liTotalCustomers);
     var liCupTotal = document.createElement('li');
-    liCupTotal.textContent = 'Total cups sold at ' + pikePlace.locationName + ': ' + Math.round(pikePlace.dailyCupsTotal * 10) / 10;
+    liCupTotal.textContent = 'Total cups sold at ' + pikePlace.locationName + ': ' + Math.ceil(pikePlace.dailyCupsTotal);
     ulElement.appendChild(liCupTotal);
     var liPoundPackagesTotal = document.createElement('li');
-    liPoundPackagesTotal.textContent = 'Total pound packages sold at ' + pikePlace.locationName + ': ' + Math.round(pikePlace.dailyPoundPackagesTotal * 10) / 10;
+    liPoundPackagesTotal.textContent = 'Total pound packages sold at ' + pikePlace.locationName + ': ' + Math.ceil(pikePlace.dailyPoundPackagesTotal);
     ulElement.appendChild(liPoundPackagesTotal);
     var liBeanTotal = document.createElement('li');
-    liBeanTotal.textContent = 'Total pounds of beans needed at ' + pikePlace.locationName + ': ' + Math.round(pikePlace.dailyBeansNeeded * 10) / 10;
+    liBeanTotal.textContent = 'Total pounds of beans needed at ' + pikePlace.locationName + ': ' + Math.ceil(pikePlace.dailyBeansNeeded);
     ulElement.appendChild(liBeanTotal);
   }
 };
@@ -151,21 +151,22 @@ var capitolHill = {
       // append the <li> to the <ul>
       var liElement = document.createElement('li');
       liElement.textContent = hours[i] + ': ' + this.beansPerHour[i] + ' lbs [' +
-      this.customersPerHour[i] + ' customers, ' + this.cupsPerHour[i] + ' cups (' + (this.cupsPerHour[i] / 16) + ' lbs), ' + this.poundPackagesPerHour[i] + ' lbs to-go]';
+      this.customersPerHour[i] + ' customers, ' + this.cupsPerHour[i] + ' cups (' + Math.round((this.cupsPerHour[i] / 16) * 10) / 10 + ' lbs), ' +
+      this.poundPackagesPerHour[i] + ' lbs to-go]';
       ulElement.appendChild(liElement);
 
     }
     var liTotalCustomers = document.createElement('li');
-    liTotalCustomers.textContent = 'Total customers at ' + capitolHill.locationName + ': ' + capitolHill.dailyCustomersTotal;
+    liTotalCustomers.textContent = 'Total customers at ' + capitolHill.locationName + ': ' + Math.ceil(capitolHill.dailyCustomersTotal);
     ulElement.appendChild(liTotalCustomers);
     var liCupTotal = document.createElement('li');
-    liCupTotal.textContent = 'Total cups sold at ' + capitolHill.locationName + ': ' + Math.round(capitolHill.dailyCupsTotal * 10) / 10;
+    liCupTotal.textContent = 'Total cups sold at ' + capitolHill.locationName + ': ' + Math.ceil(capitolHill.dailyCupsTotal);
     ulElement.appendChild(liCupTotal);
     var liPoundPackagesTotal = document.createElement('li');
-    liPoundPackagesTotal.textContent = 'Total pound packages sold at ' + capitolHill.locationName + ': ' + Math.round(capitolHill.dailyPoundPackagesTotal * 10) / 10;
+    liPoundPackagesTotal.textContent = 'Total pound packages sold at ' + capitolHill.locationName + ': ' + Math.ceil(capitolHill.dailyPoundPackagesTotal);
     ulElement.appendChild(liPoundPackagesTotal);
     var liBeanTotal = document.createElement('li');
-    liBeanTotal.textContent = 'Total pounds of beans needed at ' + capitolHill.locationName + ': ' + Math.round(capitolHill.dailyBeansNeeded * 10) / 10;
+    liBeanTotal.textContent = 'Total pounds of beans needed at ' + capitolHill.locationName + ': ' + Math.ceil(capitolHill.dailyBeansNeeded );
     ulElement.appendChild(liBeanTotal);
   }
 };
@@ -236,21 +237,21 @@ var seattlePublicLibrary = {
       // append the <li> to the <ul>
       var liElement = document.createElement('li');
       liElement.textContent = hours[i] + ': ' + this.beansPerHour[i] + ' lbs [' +
-      this.customersPerHour[i] + ' customers, ' + this.cupsPerHour[i] + ' cups (' + (this.cupsPerHour[i] / 16) + ' lbs), ' + this.poundPackagesPerHour[i] + ' lbs to-go]';
+      this.customersPerHour[i] + ' customers, ' + this.cupsPerHour[i] + ' cups (' + Math.round((this.cupsPerHour[i] / 16) * 10) / 10 + ' lbs), ' + this.poundPackagesPerHour[i] + ' lbs to-go]';
       ulElement.appendChild(liElement);
 
     }
     var liTotalCustomers = document.createElement('li');
-    liTotalCustomers.textContent = 'Total customers at ' + seattlePublicLibrary.locationName + ': ' + seattlePublicLibrary.dailyCustomersTotal;
+    liTotalCustomers.textContent = 'Total customers at ' + seattlePublicLibrary.locationName + ': ' + Math.ceil(seattlePublicLibrary.dailyCustomersTotal);
     ulElement.appendChild(liTotalCustomers);
     var liCupTotal = document.createElement('li');
-    liCupTotal.textContent = 'Total cups sold at ' + seattlePublicLibrary.locationName + ': ' + Math.round(seattlePublicLibrary.dailyCupsTotal * 10) / 10;
+    liCupTotal.textContent = 'Total cups sold at ' + seattlePublicLibrary.locationName + ': ' + Math.ceil(seattlePublicLibrary.dailyCupsTotal);
     ulElement.appendChild(liCupTotal);
     var liPoundPackagesTotal = document.createElement('li');
-    liPoundPackagesTotal.textContent = 'Total pound packages sold at ' + seattlePublicLibrary.locationName + ': ' + Math.round(seattlePublicLibrary.dailyPoundPackagesTotal * 10) / 10;
+    liPoundPackagesTotal.textContent = 'Total pound packages sold at ' + seattlePublicLibrary.locationName + ': ' + Math.ceil(seattlePublicLibrary.dailyPoundPackagesTotal);
     ulElement.appendChild(liPoundPackagesTotal);
     var liBeanTotal = document.createElement('li');
-    liBeanTotal.textContent = 'Total pounds of beans needed at ' + seattlePublicLibrary.locationName + ': ' + Math.round(seattlePublicLibrary.dailyBeansNeeded * 10) / 10;
+    liBeanTotal.textContent = 'Total pounds of beans needed at ' + seattlePublicLibrary.locationName + ': ' + Math.ceil(seattlePublicLibrary.dailyBeansNeeded);
     ulElement.appendChild(liBeanTotal);
   }
 };
@@ -282,6 +283,7 @@ var southLakeUnion = {
     for (var i = 0; i < hours.length; i++) {
       var totalCups = Math.round((this.customersPerHour[i] * this.avgCupsPerCustomer) * 10) / 10;
       this.dailyCupsTotal += totalCups;
+      this.cupsPerHour.push(totalCups);
     }
   },
 
@@ -320,21 +322,21 @@ var southLakeUnion = {
       // append the <li> to the <ul>
       var liElement = document.createElement('li');
       liElement.textContent = hours[i] + ': ' + this.beansPerHour[i] + ' lbs [' +
-      this.customersPerHour[i] + ' customers, ' + this.cupsPerHour[i] + ' cups (' + (this.cupsPerHour[i] / 16) + ' lbs), ' + this.poundPackagesPerHour[i] + ' lbs to-go]';
+      this.customersPerHour[i] + ' customers, ' + this.cupsPerHour[i] + ' cups (' + Math.round((this.cupsPerHour[i] / 16) * 10) / 10 + ' lbs), ' + this.poundPackagesPerHour[i] + ' lbs to-go]';
       ulElement.appendChild(liElement);
 
     }
     var liTotalCustomers = document.createElement('li');
-    liTotalCustomers.textContent = 'Total customers at ' + southLakeUnion.locationName + ': ' + southLakeUnion.dailyCustomersTotal;
+    liTotalCustomers.textContent = 'Total customers at ' + southLakeUnion.locationName + ': ' + Math.ceil(southLakeUnion.dailyCustomersTotal);
     ulElement.appendChild(liTotalCustomers);
     var liCupTotal = document.createElement('li');
-    liCupTotal.textContent = 'Total cups sold at ' + southLakeUnion.locationName + ': ' + Math.round(southLakeUnion.dailyCupsTotal * 10) / 10;
+    liCupTotal.textContent = 'Total cups sold at ' + southLakeUnion.locationName + ': ' + Math.ceil(southLakeUnion.dailyCupsTotal);
     ulElement.appendChild(liCupTotal);
     var liPoundPackagesTotal = document.createElement('li');
-    liPoundPackagesTotal.textContent = 'Total pound packages sold at ' + southLakeUnion.locationName + ': ' + Math.round(southLakeUnion.dailyPoundPackagesTotal * 10) / 10;
+    liPoundPackagesTotal.textContent = 'Total pound packages sold at ' + southLakeUnion.locationName + ': ' + Math.ceil(southLakeUnion.dailyPoundPackagesTotal);
     ulElement.appendChild(liPoundPackagesTotal);
     var liBeanTotal = document.createElement('li');
-    liBeanTotal.textContent = 'Total pounds of beans needed at ' + southLakeUnion.locationName + ': ' + Math.round(southLakeUnion.dailyBeansNeeded * 10) / 10;
+    liBeanTotal.textContent = 'Total pounds of beans needed at ' + southLakeUnion.locationName + ': ' + Math.ceil(southLakeUnion.dailyBeansNeeded);
     ulElement.appendChild(liBeanTotal);
   }
 };
@@ -405,21 +407,21 @@ var seaTacAirport = {
       // append the <li> to the <ul>
       var liElement = document.createElement('li');
       liElement.textContent = hours[i] + ': ' + this.beansPerHour[i] + ' lbs [' +
-      this.customersPerHour[i] + ' customers, ' + this.cupsPerHour[i] + ' cups (' + (this.cupsPerHour[i] / 16) + ' lbs), ' + this.poundPackagesPerHour[i] + ' lbs to-go]';
+      this.customersPerHour[i] + ' customers, ' + this.cupsPerHour[i] + ' cups (' + Math.round((this.cupsPerHour[i] / 16) * 10) / 10 + ' lbs), ' + this.poundPackagesPerHour[i] + ' lbs to-go]';
       ulElement.appendChild(liElement);
 
     }
     var liTotalCustomers = document.createElement('li');
-    liTotalCustomers.textContent = 'Total customers at ' + seaTacAirport.locationName + ': ' + seaTacAirport.dailyCustomersTotal;
+    liTotalCustomers.textContent = 'Total customers at ' + seaTacAirport.locationName + ': ' + Math.ceil(seaTacAirport.dailyCustomersTotal);
     ulElement.appendChild(liTotalCustomers);
     var liCupTotal = document.createElement('li');
-    liCupTotal.textContent = 'Total cups sold at ' + seaTacAirport.locationName + ': ' + Math.round(seaTacAirport.dailyCupsTotal * 10) / 10;
+    liCupTotal.textContent = 'Total cups sold at ' + seaTacAirport.locationName + ': ' + Math.ceil(seaTacAirport.dailyCupsTotal);
     ulElement.appendChild(liCupTotal);
     var liPoundPackagesTotal = document.createElement('li');
-    liPoundPackagesTotal.textContent = 'Total pound packages sold at ' + seaTacAirport.locationName + ': ' + Math.round(seaTacAirport.dailyPoundPackagesTotal * 10) / 10;
+    liPoundPackagesTotal.textContent = 'Total pound packages sold at ' + seaTacAirport.locationName + ': ' + Math.ceil(seaTacAirport.dailyPoundPackagesTotal);
     ulElement.appendChild(liPoundPackagesTotal);
     var liBeanTotal = document.createElement('li');
-    liBeanTotal.textContent = 'Total pounds of beans needed at ' + seaTacAirport.locationName + ': ' + Math.round(seaTacAirport.dailyBeansNeeded * 10) / 10;
+    liBeanTotal.textContent = 'Total pounds of beans needed at ' + seaTacAirport.locationName + ': ' + Math.ceil(seaTacAirport.dailyBeansNeeded);
     ulElement.appendChild(liBeanTotal);
   }
 };
