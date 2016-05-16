@@ -1,3 +1,20 @@
-* {
-  
+body {
+  background-color: green;
+  color: red;
+}
+
+li {
+  margin: 0px auto;
+  font-size: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: brown;
+  font-weight: bold;
+}
+
+div {
+  margin-left: 200px;
+  margin-right: 200px;
 }
