@@ -47,7 +47,7 @@ CampCoffee.prototype.calcTotalPoundsPerHour = function() {
 CampCoffee.prototype.calcHourlyBeans = function() {
   for (var i = 0; i < hours.length; i++) {
     var beans = this.poundsPerHour[i] + (this.cupsPerHour[i] / 16);
-    this.totalBeansPerHour[i] = Math.round(beans * 10) / 10;
+    this.totalBeansPerHour[i] = beans;
     this.totalBeans += beans;
   }
 };
