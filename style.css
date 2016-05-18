@@ -1,11 +1,28 @@
  body {
   background-color: #B26726;
+  font-family: 'Amethysta', serif;
+}
+
+#locationList {
+  width: 220px;
+}
+
+#mid {
+  display: inline;
 }
 
 li {
-  margin: 0px auto;
   font-size: 20px;
   font-family: 'Amethysta', serif;
+  width: 200px;
+  padding-bottom: 50px;
+
+
+}
+ul {
+
+  margin: 50px auto;
+  position: absolute;
 }
 
 h1 {
@@ -13,16 +30,12 @@ h1 {
   color: #8AFF00;
   font-weight: bold;
   font-family: 'Amethysta', serif;
-}
-
-div {
-  margin-left: 200px;
-  margin-right: 200px;
+  margin: 0px auto;
 }
 
 th {
   background-color: #FF5D3A;
-  color: black;
+  color:    black;
 }
 
 tr td {
@@ -52,8 +65,20 @@ fieldset {
 
 legend {
   font-weight: bolder;
+  font-size: 20px;
 }
 
 table {
   margin: 0px auto;
+}
+
+label {
+  font-size: 16px;
+}
+img {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin-left: 250px;
+
 }
