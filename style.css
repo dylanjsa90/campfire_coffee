@@ -1,3 +1,59 @@
-* {
-  
+ body {
+  background-color: #B26726;
+}
+
+li {
+  margin: 0px auto;
+  font-size: 20px;
+  font-family: 'Amethysta', serif;
+}
+
+h1 {
+  text-align: center;
+  color: #8AFF00;
+  font-weight: bold;
+  font-family: 'Amethysta', serif;
+}
+
+div {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+th {
+  background-color: #FF5D3A;
+  color: black;
+}
+
+tr td {
+  background-color: #B2B22E;
+  color: black;
+}
+
+td {
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+th {
+  width: 80px;
+  height: 60px;
+}
+
+fieldset {
+  max-width: 1000px;
+  border-radius: 50px;
+  border: 7px solid #8AFF00;
+  text-align: center;
+  padding: 30px;
+  margin: 0px auto;
+}
+
+legend {
+  font-weight: bolder;
+}
+
+table {
+  margin: 0px auto;
 }
