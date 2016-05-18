@@ -1,3 +1,6 @@
+ body {
+  background-color: #B26726;
+}
 
 li {
   margin: 0px auto;
@@ -5,9 +8,9 @@ li {
   font-family: 'Amethysta', serif;
 }
 
-h2 {
+h1 {
   text-align: center;
-  color: brown;
+  color: #8AFF00;
   font-weight: bold;
   font-family: 'Amethysta', serif;
 }
@@ -18,13 +21,13 @@ div {
 }
 
 th {
-  background-color: green;
-  color: white;
+  background-color: #FF5D3A;
+  color: black;
 }
 
-tr > td {
-  background-color: green;
-  color: white;
+tr td {
+  background-color: #B2B22E;
+  color: black;
 }
 
 td {
@@ -36,4 +39,21 @@ td {
 th {
   width: 80px;
   height: 60px;
+}
+
+fieldset {
+  max-width: 1000px;
+  border-radius: 50px;
+  border: 7px solid #8AFF00;
+  text-align: center;
+  padding: 30px;
+  margin: 0px auto;
+}
+
+legend {
+  font-weight: bolder;
+}
+
+table {
+  margin: 0px auto;
 }
