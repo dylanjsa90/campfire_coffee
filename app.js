@@ -86,7 +86,6 @@ var tableHeadings = function(title, id) {
 var tableData = function (){
   var totals = [0, 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0, 0, 0, 0, 0];
   var total = 0;
-  var hourTotals = 0;
   var beansTable = document.getElementById('beans-table');
   for (var i = 0; i < coffeeLocations.length; i++) {
     var trElement = document.createElement('tr');
@@ -94,13 +93,13 @@ var tableData = function (){
     tdElement.textContent = coffeeLocations[i].locationName;
     trElement.appendChild(tdElement);
     tdElement = document.createElement('td');
-    tdElement.textContent = coffeeLocations[i].totalBeans.toFixed(2);
-    total += parseInt(coffeeLocations[i].totalBeans);
+    tdElement.textContent = Math.ceil(coffeeLocations[i].totalBeans);
+    total += Math.ceil(coffeeLocations[i].totalBeans);
     trElement.appendChild(tdElement);
     for (var j = 0; j < hours.length; j++) {
       var tdData = document.createElement('td');
-      tdData.textContent = coffeeLocations[i].totalBeansPerHour[j].toFixed(2);
-      totals[j] += parseInt(coffeeLocations[i].totalBeansPerHour[j]);
+      tdData.textContent = Math.ceil(coffeeLocations[i].totalBeansPerHour[j]);
+      totals[j] += Math.ceil(coffeeLocations[i].totalBeansPerHour[j]);
       trElement.appendChild(tdData);
     }
     beansTable.appendChild(trElement);
@@ -110,7 +109,7 @@ var tableData = function (){
   tdElement.textContent = 'Total';
   trElement.appendChild(tdElement);
   tdElement = document.createElement('td');
-  tdElement.textContent = total;
+  tdElement.textContent = Math.ceil(total);
   trElement.appendChild(tdElement);
   for (var i = 0; i < totals.length; i++) {
     tdElement = document.createElement('td');
