@@ -1,10 +1,20 @@
  body {
   background-color: #B26726;
   font-family: 'Amethysta', serif;
+  color: white;
 }
 
+label {
+  display: block;
+}
+
+button {
+  display: block;
+  margin: 0px auto;
+}
 #locationList {
   width: 220px;
+  /*background-image: url('assets/campfire-coffee.jpg');*/
 }
 
 #mid {
@@ -20,7 +30,7 @@ li {
 
 }
 ul {
-
+  background-image: url('assets/campsite-tent-night.jpg');
   margin: 50px auto;
   position: absolute;
 }
@@ -61,6 +71,7 @@ fieldset {
   text-align: center;
   padding: 30px;
   margin: 0px auto;
+  font-size: 30px;
 }
 
 legend {
