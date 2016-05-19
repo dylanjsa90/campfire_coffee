@@ -73,19 +73,6 @@ CampCoffee.prototype.calcBaristaHours = function() {
   }
 };
 
-CampCoffee.prototype.clearData = function () {
-  this.totalBeansPerHour = [];
-  this.cupsPerHour = [];
-  this.poundsPerHour = [];
-  this.customersPerHour = [];
-  this.barristaPerHour = [];
-  this.totalCustomers = 0;
-  this.totalCups = 0;
-  this.totalPounds = 0;
-  this.totalBeans = 0;
-  this.totalBarristaHours = 0;
-};
-
 CampCoffee.prototype.renderBeanRow = function() {
   var table = document.getElementById('beans-table');
   var trElement = document.createElement('tr');
