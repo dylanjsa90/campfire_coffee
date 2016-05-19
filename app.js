@@ -3,7 +3,6 @@ var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:0
 var totals = [0, 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0, 0, 0, 0, 0];
 var total = 0;
 var inputForm = document.getElementById('input-form');
-var preExistingLocation = false;
 
 function CampCoffee (locationName, minCustomersHour, maxCustomersHour, avgCupsPerCustomer, avgPoundsPerCustomer) {
   this.locationName = locationName;
@@ -25,7 +24,7 @@ function CampCoffee (locationName, minCustomersHour, maxCustomersHour, avgCupsPe
 };
 
 CampCoffee.prototype.calcCustomersPerHour = function(min,max) {
-  if (this.totalCustomers === 0 || preExistingLocation) {
+  if (this.totalCustomers === 0) {
     for (var i = 0; i < hours.length; i ++) {
       var customers = Math.floor(Math.random() * (max - min + 1)) + min;
       this.customersPerHour.push(customers);
@@ -35,7 +34,7 @@ CampCoffee.prototype.calcCustomersPerHour = function(min,max) {
 };
 
 CampCoffee.prototype.calcTotalCupsPerHour = function() {
-  if (this.totalCups === 0 || preExistingLocation) {
+  if (this.totalCups === 0) {
     for (var i = 0; i < hours.length; i++) {
       var cups = this.customersPerHour[i] * this.avgCupsPerCustomer;
       this.totalCups += cups;
@@ -45,9 +44,7 @@ CampCoffee.prototype.calcTotalCupsPerHour = function() {
 };
 
 CampCoffee.prototype.calcTotalPoundsPerHour = function() {
-  if (this.totalPounds === 0 || preExistingLocation) {
-    // this.totalPounds = 0;
-    // this.poundsPerHour = [];
+  if (this.totalPounds === 0) {
     for (var i = 0; i < hours.length; i++) {
       var beans = this.customersPerHour[i] * this.avgPoundsPerCustomer;
       this.totalPounds += beans;
@@ -57,9 +54,7 @@ CampCoffee.prototype.calcTotalPoundsPerHour = function() {
 };
 
 CampCoffee.prototype.calcHourlyBeans = function() {
-  if (this.totalBeans === 0 || preExistingLocation) {
-    // this.totalBeans = 0;
-    // this.totalBeansPerHour = [];
+  if (this.totalBeans === 0) {
     for (var i = 0; i < hours.length; i++) {
       var beans = this.poundsPerHour[i] + (this.cupsPerHour[i] / 16);
       this.totalBeansPerHour[i] = beans;
@@ -69,9 +64,7 @@ CampCoffee.prototype.calcHourlyBeans = function() {
 };
 
 CampCoffee.prototype.calcBaristaHours = function() {
-  if (this.totalBarristaHours === 0 || preExistingLocation) {
-    // this.totalBarristaHours = 0;
-    // this.barristaPerHour = [];
+  if (this.totalBarristaHours === 0) {
     for (var i = 0; i < hours.length; i++) {
       var barHours = Math.ceil((this.cupsPerHour[i] + this.poundsPerHour[i]) / 30);
       this.barristaPerHour[i] = barHours;
@@ -209,10 +202,12 @@ function handleLocationSubmit(event) {
   if (!event.target.locationInput.value || !event.target.minCustomersHour.value || !event.target.maxCustomersHour.value || !event.target.cupsPerCustomer.value || !event.target.packagedLbsPerCustomer.value) {
     return alert('Fields can not be empty');
   }
+  var preExistingLocation = false;
   for (var i = 0; i < coffeeLocations.length; i++) {
     if (event.target.locationInput.value === coffeeLocations[i].locationName) {
-      coffeeLocations[i].clearData();
-      coffeeLocations[i] = new CampCoffee(event.target.locationInput.value, parseInt(event.target.minCustomersHour.value), parseInt(event.target.maxCustomersHour.value), parseFloat(event.target.cupsPerCustomer.value), parseFloat(event.target.packagedLbsPerCustomer.value));
+      preExistingLocation = true;
+      newLocationData = new CampCoffee(event.target.locationInput.value, parseInt(event.target.minCustomersHour.value), parseInt(event.target.maxCustomersHour.value), parseFloat(event.target.cupsPerCustomer.value), parseFloat(event.target.packagedLbsPerCustomer.value));
+      coffeeLocations.splice(i, 1, newLocationData);
       coffeeLocations = coffeeLocations.slice(0, -1);
       break;
     }
