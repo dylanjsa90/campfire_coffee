@@ -24,42 +24,52 @@ function CampCoffee (locationName, minCustomersHour, maxCustomersHour, avgCupsPe
 };
 
 CampCoffee.prototype.calcCustomersPerHour = function(min,max) {
-  for (var i = 0; i < hours.length; i ++) {
-    var customers = Math.floor(Math.random() * (max - min + 1)) + min;
-    this.customersPerHour.push(customers);
-    this.totalCustomers += customers;
+  if (this.totalCustomers === 0) {
+    for (var i = 0; i < hours.length; i ++) {
+      var customers = Math.floor(Math.random() * (max - min + 1)) + min;
+      this.customersPerHour.push(customers);
+      this.totalCustomers += customers;
+    }
   }
 };
 
 CampCoffee.prototype.calcTotalCupsPerHour = function() {
-  for (var i = 0; i < hours.length; i++) {
-    var cups = this.customersPerHour[i] * this.avgCupsPerCustomer;
-    this.totalCups += cups;
-    this.cupsPerHour.push(cups);
+  if (this.totalCups === 0) {
+    for (var i = 0; i < hours.length; i++) {
+      var cups = this.customersPerHour[i] * this.avgCupsPerCustomer;
+      this.totalCups += cups;
+      this.cupsPerHour.push(cups);
+    }
   }
 };
 
 CampCoffee.prototype.calcTotalPoundsPerHour = function() {
-  for (var i = 0; i < hours.length; i++) {
-    var beans = this.customersPerHour[i] * this.avgPoundsPerCustomer;
-    this.totalPounds += beans;
-    this.poundsPerHour.push(beans);
+  if (this.totalPounds === 0) {
+    for (var i = 0; i < hours.length; i++) {
+      var beans = this.customersPerHour[i] * this.avgPoundsPerCustomer;
+      this.totalPounds += beans;
+      this.poundsPerHour.push(beans);
+    }
   }
 };
 
 CampCoffee.prototype.calcHourlyBeans = function() {
-  for (var i = 0; i < hours.length; i++) {
-    var beans = this.poundsPerHour[i] + (this.cupsPerHour[i] / 16);
-    this.totalBeansPerHour[i] = beans;
-    this.totalBeans += beans;
+  if (this.totalBeans === 0) {
+    for (var i = 0; i < hours.length; i++) {
+      var beans = this.poundsPerHour[i] + (this.cupsPerHour[i] / 16);
+      this.totalBeansPerHour[i] = beans;
+      this.totalBeans += beans;
+    }
   }
 };
 
 CampCoffee.prototype.calcBaristaHours = function() {
-  for (var i = 0; i < hours.length; i++) {
-    var barHours = Math.ceil((this.cupsPerHour[i] + this.poundsPerHour[i]) / 30);
-    this.barristaPerHour[i] = barHours;
-    this.totalBarristaHours += barHours;
+  if (this.totalBarristaHours === 0) {
+    for (var i = 0; i < hours.length; i++) {
+      var barHours = Math.ceil((this.cupsPerHour[i] + this.poundsPerHour[i]) / 30);
+      this.barristaPerHour[i] = barHours;
+      this.totalBarristaHours += barHours;
+    }
   }
 };
 
