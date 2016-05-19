@@ -213,6 +213,7 @@ function handleLocationSubmit(event) {
     if (event.target.locationInput.value === coffeeLocations[i].locationName) {
       coffeeLocations[i].clearData();
       coffeeLocations[i] = new CampCoffee(event.target.locationInput.value, parseInt(event.target.minCustomersHour.value), parseInt(event.target.maxCustomersHour.value), parseFloat(event.target.cupsPerCustomer.value), parseFloat(event.target.packagedLbsPerCustomer.value));
+      coffeeLocations = coffeeLocations.slice(0, -1);
       break;
     }
   }
