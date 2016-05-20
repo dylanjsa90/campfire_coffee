@@ -2,6 +2,7 @@ var coffeeLocations = [];
 var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm:', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm:'];
 var totals = [0, 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0, 0, 0, 0, 0];
 var total = 0;
+var inputForm = document.getElementById('input-form');
 
 function CampCoffee (locationName, minCustomersHour, maxCustomersHour, avgCupsPerCustomer, avgPoundsPerCustomer) {
   this.locationName = locationName;
@@ -131,7 +132,7 @@ function renderAllBarista() {
   }
   totalRow('baristas-table');
 }
-
+// Create and append table header row for table with argument id
 function tableHeadings (title, id) {
   var table = document.getElementById(id);
   var trElement = document.createElement('tr');
@@ -148,6 +149,7 @@ function tableHeadings (title, id) {
   }
   table.appendChild(trElement);
 };
+// Create and append total row for table with argument id
 function totalRow (id){
   var table = document.getElementById(id);
   var trElement = document.createElement('tr');
@@ -168,16 +170,15 @@ function clearTotals() {
   total = 0;
   totals = [0, 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0, 0, 0, 0, 0];
 }
-function calculateData() {
-  for (var i = 0; i < coffeeLocations.length; i++) {
-    coffeeLocations[i].calcCustomersPerHour(coffeeLocations[i].minCustomersHour, coffeeLocations[i].maxCustomersHour);
-    coffeeLocations[i].calcTotalCupsPerHour();
-    coffeeLocations[i].calcTotalPoundsPerHour();
-    coffeeLocations[i].calcHourlyBeans();
-    coffeeLocations[i].calcBaristaHours();
-    console.log(coffeeLocations[i]);
-  }
+// Populate each instances' array and totals properties
+function calculateData(coffee) {
+  coffee.calcCustomersPerHour(coffee.minCustomersHour, coffee.maxCustomersHour);
+  coffee.calcTotalCupsPerHour();
+  coffee.calcTotalPoundsPerHour();
+  coffee.calcHourlyBeans();
+  coffee.calcBaristaHours();
 }
+
 function handleLocationSubmit(event) {
   event.preventDefault();
   if (!event.target.locationInput.value || !event.target.minCustomersHour.value || !event.target.maxCustomersHour.value || !event.target.cupsPerCustomer.value || !event.target.packagedLbsPerCustomer.value) {
@@ -198,25 +199,34 @@ function handleLocationSubmit(event) {
       coffeeLocations = coffeeLocations.slice(0, -1); // Remove extra instance pushed to array from constructor
     }
   }
+
+  // Create new location if repeated entry not found
   if (!preExistingLocation) {
     var newLocation = new CampCoffee(locationName, minCustomersHour, maxCustomersHour, cupsPerCustomer, packagedLbsPerCustomer);
   }
+  // Clear input fields
   event.target.locationInput.value = null;
   event.target.minCustomersHour.value = null;
   event.target.maxCustomersHour.value = null;
   event.target.cupsPerCustomer.value = null;
   event.target.packagedLbsPerCustomer.value = null;
-  document.getElementById('beans-table').innerHTML = '';
-  document.getElementById('baristas-table').innerHTML = '';
+  // Clear tables
+  var table = document.getElementById('beans-table');
+  table.innerHTML = '';
+  table = document.getElementById('baristas-table');
+  table.innerHTML = '';
+  // Render tables with new input
   renderAll();
 }
 
 function renderAll() {
-  calculateData(); // Fill instance data for all locations
+  for (var i = 0; i < coffeeLocations.length; i++) {
+    calculateData(coffeeLocations[i]); // Fill instance data for all locations
+  }
   renderAllBeans(); // Fill in all table rows
   clearTotals(); // Reset total counters for total row
   renderAllBarista();// Fill in table rows
   clearTotals(); // Reset total counters
 }
-document.getElementById('input-form').addEventListener('submit', handleLocationSubmit);
+inputForm.addEventListener('submit', handleLocationSubmit);
 renderAll();
