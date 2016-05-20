@@ -201,16 +201,7 @@ function handleLocationSubmit(event) {
       coffeeLocations = coffeeLocations.slice(0, -1); // Remove extra instance pushed to array from constructor
     }
   }
-  var preExistingLocation = false;
-  for (var i = 0; i < coffeeLocations.length; i++) {
-    if (event.target.locationInput.value === coffeeLocations[i].locationName) {
-      preExistingLocation = true;
-      newLocationData = new CampCoffee(event.target.locationInput.value, parseInt(event.target.minCustomersHour.value), parseInt(event.target.maxCustomersHour.value), parseFloat(event.target.cupsPerCustomer.value), parseFloat(event.target.packagedLbsPerCustomer.value));
-      coffeeLocations.splice(i, 1, newLocationData);
-      coffeeLocations = coffeeLocations.slice(0, -1);
-      break;
-    }
-  }
+
   // Create new location if repeated entry not found
   if (!preExistingLocation) {
     var newLocation = new CampCoffee(locationName, minCustomersHour, maxCustomersHour, cupsPerCustomer, packagedLbsPerCustomer);
