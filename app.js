@@ -110,13 +110,11 @@ CampCoffee.prototype.renderBaristaRow = function() {
   }
   table.appendChild(trElement);
 };
-
 var pikePlace = new CampCoffee('Pike Place Market', 14, 34, 1.2, 0.34);
 var capitolHill = new CampCoffee('Capitol Hill', 12, 28, 3.2, 0.03);
 var seattlePublicLibrary = new CampCoffee('Seattle Public Library', 9, 45, 2.6, 0.02);
 var southLakeUnion = new CampCoffee('South Lake Union', 5, 18, 1.3, 0.04);
 var seaTacAirport = new CampCoffee('SeaTac Airport', 28, 44, 1.1, 0.41);
-
 // Create Bean total table
 function renderAllBeans() {
   tableHeadings('Daily Location ', 'beans-table');
@@ -125,7 +123,6 @@ function renderAllBeans() {
   }
   totalRow('beans-table');
 }
-
 // Create barista total table
 function renderAllBarista() {
   var table = document.getElementById('baristas-table');
@@ -135,7 +132,6 @@ function renderAllBarista() {
   }
   totalRow('baristas-table');
 }
-
 // Create and append table header row for table with argument id
 function tableHeadings (title, id) {
   var table = document.getElementById(id);
@@ -153,7 +149,6 @@ function tableHeadings (title, id) {
   }
   table.appendChild(trElement);
 };
-
 // Create and append total row for table with argument id
 function totalRow (id){
   var table = document.getElementById(id);
@@ -171,12 +166,10 @@ function totalRow (id){
   }
   table.appendChild(trElement);
 }
-
 function clearTotals() {
   total = 0;
   totals = [0, 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0, 0, 0, 0, 0];
 }
-
 // Populate each instances' array and totals properties
 function calculateData() {
   for (var i = 0; i < coffeeLocations.length; i++) {
@@ -188,14 +181,11 @@ function calculateData() {
     console.log(coffeeLocations[i]);
   }
 }
-
 function handleLocationSubmit(event) {
   event.preventDefault();
   if (!event.target.locationInput.value || !event.target.minCustomersHour.value || !event.target.maxCustomersHour.value || !event.target.cupsPerCustomer.value || !event.target.packagedLbsPerCustomer.value) {
     return alert('Fields can not be empty');
   }
-<<<<<<< HEAD
-
   var locationName = event.target.locationInput.value;
   var minCustomersHour = parseInt(event.target.minCustomersHour.value);
   var maxCustomersHour = parseInt(event.target.maxCustomersHour.value);
@@ -209,7 +199,8 @@ function handleLocationSubmit(event) {
       newLocationData = new CampCoffee(locationName, minCustomersHour, maxCustomersHour, cupsPerCustomer, packagedLbsPerCustomer);
       coffeeLocations.splice(i, 1, newLocationData); // Replace repeat location with new instance for that location
       coffeeLocations = coffeeLocations.slice(0, -1); // Remove extra instance pushed to array from constructor
-=======
+    }
+  }
   var preExistingLocation = false;
   for (var i = 0; i < coffeeLocations.length; i++) {
     if (event.target.locationInput.value === coffeeLocations[i].locationName) {
@@ -217,7 +208,6 @@ function handleLocationSubmit(event) {
       newLocationData = new CampCoffee(event.target.locationInput.value, parseInt(event.target.minCustomersHour.value), parseInt(event.target.maxCustomersHour.value), parseFloat(event.target.cupsPerCustomer.value), parseFloat(event.target.packagedLbsPerCustomer.value));
       coffeeLocations.splice(i, 1, newLocationData);
       coffeeLocations = coffeeLocations.slice(0, -1);
->>>>>>> d9a1063be6468ce07f6f962b2f2b0b7ef0cde3ec
       break;
     }
   }
@@ -225,14 +215,12 @@ function handleLocationSubmit(event) {
   if (!preExistingLocation) {
     var newLocation = new CampCoffee(locationName, minCustomersHour, maxCustomersHour, cupsPerCustomer, packagedLbsPerCustomer);
   }
-
   // Clear input fields
   event.target.locationInput.value = null;
   event.target.minCustomersHour.value = null;
   event.target.maxCustomersHour.value = null;
   event.target.cupsPerCustomer.value = null;
   event.target.packagedLbsPerCustomer.value = null;
-
   // Clear tables
   var table = document.getElementById('beans-table');
   table.innerHTML = '';
@@ -250,5 +238,4 @@ function renderAll() {
   clearTotals(); // Reset total counters
 }
 inputForm.addEventListener('submit', handleLocationSubmit);
-
 renderAll();
