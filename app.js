@@ -153,7 +153,6 @@ function tableHeadings (title, id) {
   }
   table.appendChild(trElement);
 };
-
 // Create and append total row for table with argument id
 function totalRow (id){
   var table = document.getElementById(id);
@@ -171,12 +170,10 @@ function totalRow (id){
   }
   table.appendChild(trElement);
 }
-
 function clearTotals() {
   total = 0;
   totals = [0, 0, 0, 0, 0, 0, 0 , 0, 0, 0, 0, 0, 0, 0, 0];
 }
-
 // Populate each instances' array and totals properties
 function calculateData() {
   for (var i = 0; i < coffeeLocations.length; i++) {
@@ -194,8 +191,6 @@ function handleLocationSubmit(event) {
   if (!event.target.locationInput.value || !event.target.minCustomersHour.value || !event.target.maxCustomersHour.value || !event.target.cupsPerCustomer.value || !event.target.packagedLbsPerCustomer.value) {
     return alert('Fields can not be empty');
   }
-<<<<<<< HEAD
-
   var locationName = event.target.locationInput.value;
   var minCustomersHour = parseInt(event.target.minCustomersHour.value);
   var maxCustomersHour = parseInt(event.target.maxCustomersHour.value);
@@ -209,15 +204,6 @@ function handleLocationSubmit(event) {
       newLocationData = new CampCoffee(locationName, minCustomersHour, maxCustomersHour, cupsPerCustomer, packagedLbsPerCustomer);
       coffeeLocations.splice(i, 1, newLocationData); // Replace repeat location with new instance for that location
       coffeeLocations = coffeeLocations.slice(0, -1); // Remove extra instance pushed to array from constructor
-=======
-  var preExistingLocation = false;
-  for (var i = 0; i < coffeeLocations.length; i++) {
-    if (event.target.locationInput.value === coffeeLocations[i].locationName) {
-      preExistingLocation = true;
-      newLocationData = new CampCoffee(event.target.locationInput.value, parseInt(event.target.minCustomersHour.value), parseInt(event.target.maxCustomersHour.value), parseFloat(event.target.cupsPerCustomer.value), parseFloat(event.target.packagedLbsPerCustomer.value));
-      coffeeLocations.splice(i, 1, newLocationData);
-      coffeeLocations = coffeeLocations.slice(0, -1);
->>>>>>> d9a1063be6468ce07f6f962b2f2b0b7ef0cde3ec
       break;
     }
   }
