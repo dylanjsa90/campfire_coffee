@@ -155,8 +155,8 @@ function handleLocationSubmit(event) {
   var maxCustomersHour = parseInt(event.target.maxCustomersHour.value);
   var cupsPerCustomer = parseFloat(event.target.cupsPerCustomer.value);
   var packagedLbsPerCustomer = parseFloat(event.target.packagedLbsPerCustomer.value);
-  // Check for repeated entry
-  var preExistingLocation = false;
+
+  var preExistingLocation = false;   // Check for repeated entry
   for (var i = 0; i < coffeeLocations.length; i++) {
     if (locationName === coffeeLocations[i].locationName) {
       preExistingLocation = true;

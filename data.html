@@ -11,19 +11,19 @@
       <fieldset>
         <legend>Location Input Form</legend>
         <label for="locationInput">Location: </label>
-        <input name="locationInput" type="text" />
+        <input name="locationInput" type="text" required="true" />
 
         <label for="minCustomersHour">Minimum Customers Per Hour:</label>
-        <input name="minCustomersHour" type="text" />
+        <input name="minCustomersHour" type="text" size="6"/>
 
         <label for="maxCustomersHour">Maximum Customers Per Hour:</label>
-        <input name="maxCustomersHour" type="text" />
+        <input name="maxCustomersHour" type="text" size="6"/>
 
         <label for="cupsPerCustomer">Average Cups Per Customer:</label>
-        <input name="cupsPerCustomer" type="text" />
+        <input name="cupsPerCustomer" type="text" size="6" />
 
         <label for="packagedLbsPerCustomer">Average Packaged Pounds Per Customer:</label>
-        <input name="packagedLbsPerCustomer" type="text" />
+        <input name="packagedLbsPerCustomer" type="text" size="6"/>
         <button id="newLocation" type="submit">Create new location:</button>
       </fieldset>
     </form>

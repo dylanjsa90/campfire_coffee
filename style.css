@@ -1,24 +1,16 @@
  body {
-  background-color: #B26726;
+  background-color: #714324;
   font-family: 'Amethysta', serif;
-  color: white;
+  color: #979175;
 }
-
-label {
-  display: block;
-}
-
-button {
-  display: block;
-  margin: 0px auto;
-}
-#locationList {
-  width: 220px;
-  /*background-image: url('assets/campfire-coffee.jpg');*/
+  #locationList {
+  display: inline;
+  width: 300px;
 }
 
 #mid {
-  display: inline;
+  display: flex;
+  margin: 20px;
 }
 
 li {
@@ -26,37 +18,35 @@ li {
   font-family: 'Amethysta', serif;
   width: 200px;
   padding-bottom: 50px;
-
-
 }
+
 ul {
   background-image: url('assets/campsite-tent-night.jpg');
-  margin: 50px auto;
-  position: absolute;
+  margin: 0px auto;
 }
 
 h1 {
   text-align: center;
-  color: #8AFF00;
   font-weight: bold;
   font-family: 'Amethysta', serif;
   margin: 0px auto;
+  margin-top: 30px;
 }
 
 th {
-  background-color: #FF5D3A;
-  color:    black;
+  background-color: #414824;
+  color: black;
+  font-size: 18px;
 }
 
 tr td {
-  background-color: #B2B22E;
+  background-color: #979175;
   color: black;
 }
 
 td {
-  background-color: white;
-  color: black;
   text-align: center;
+  padding: 5px;
 }
 
 th {
@@ -65,10 +55,9 @@ th {
 }
 
 fieldset {
-  max-width: 1000px;
+  max-width: 950px;
   border-radius: 50px;
-  border: 7px solid #8AFF00;
-  text-align: center;
+  border: 7px solid #414824;
   padding: 30px;
   margin: 0px auto;
   font-size: 30px;
@@ -77,24 +66,23 @@ fieldset {
 legend {
   font-weight: bolder;
   font-size: 20px;
+  color: black;
+}
+button {
+  margin-top: 20px;
+  font-size: 20px;
+
+}
+
+label {
+  font-size: 20px;
 }
 
 table {
   margin: 0px auto;
 }
-
-label {
-  font-size: 16px;
-}
 img {
-  width: 200px;
-  height: 200px;
-  position: relative;
-
-}
-
-#images {
-  float: right;
-  width: 220px;
-  height: 800px;
+  width: 300px;
+  height: 300px;
+  margin: 30px;
 }
